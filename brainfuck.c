@@ -8,10 +8,10 @@ void	ft_putchar(char c)
 
 char *initmem(void)
 {
-	int	sizetab;
-	int	i;
-	char *mem;
-	
+	int		sizetab;
+	int		i;
+	char	*mem;
+
 	sizetab = 5000;
 	i = 0;
 	mem = (char*)malloc(sizeof(char) * sizetab + 1);
@@ -26,9 +26,10 @@ char *initmem(void)
 
 void	brainfuck(char *code, char *mem)
 {
-	int 	c;
-	int 	i;
-	int		loop;
+	int	c;
+	int	i;
+	int	loop;
+
 	c = 0;
 	i = 0;
 	while (code[c])
@@ -77,14 +78,12 @@ void	brainfuck(char *code, char *mem)
 
 int	main(int ac, char **av)
 {
-	char	*code;
 	char	*mem;
 
 	if (ac == 2)
 	{
 		mem = initmem();
-		code = av[1];
-		brainfuck(code, mem);
+		brainfuck(av[1], mem);
 	}
 	return (0);
 }
