@@ -24,6 +24,13 @@ char *initmem(void)
 	return (mem);
 }
 
+int	isbf(char c)
+{
+	if (c == '+' || c == '-' || c == '<' || c == '>' || c == '[' || c == ']' || c == '.')
+		return (1);
+	return (0);
+}
+
 void	brainfuck(char *code, char *mem)
 {
 	int	c;
@@ -32,7 +39,7 @@ void	brainfuck(char *code, char *mem)
 
 	c = 0;
 	i = 0;
-	while (code[c])
+	while (code[c] && isbf(code[c]))
 	{
 		if (code[c] == '>')
 			i++;
