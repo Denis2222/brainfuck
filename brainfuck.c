@@ -39,43 +39,46 @@ void	brainfuck(char *code, char *mem)
 
 	c = 0;
 	i = 0;
-	while (code[c] && isbf(code[c]))
+	while (code[c])
 	{
-		if (code[c] == '>')
-			i++;
-		if (code[c] == '<')
-			i--;
-		if (code[c] == '.')
-			ft_putchar(mem[i]);
-		if (code[c] == '+')
-			mem[i]++;
-		if (code[c] == '-')
-			mem[i]--;
-		if (code[c] == ']')
+		if (isbf(code[c]))
 		{
-			loop = 1;
-			while (loop)
-			{
-				c--;
-				if (code[c] == ']')
-					loop++;
-				else if (code[c] == '[')
-					loop--;
-			}
-			c--;
-		}
-		if (code[c] == '[')
-		{
-			if (mem[i] == 0)
+			if (code[c] == '>')
+				i++;
+			if (code[c] == '<')
+				i--;
+			if (code[c] == '.')
+				ft_putchar(mem[i]);
+			if (code[c] == '+')
+				mem[i]++;
+			if (code[c] == '-')
+				mem[i]--;
+			if (code[c] == ']')
 			{
 				loop = 1;
 				while (loop)
 				{
-					c++;
-					if (code[c] == '[')
+					c--;
+					if (code[c] == ']')
 						loop++;
-					else if (code[c] == ']')
+					else if (code[c] == '[')
 						loop--;
+				}
+				c--;
+			}
+			if (code[c] == '[')
+			{
+				if (mem[i] == 0)
+				{
+					loop = 1;
+					while (loop)
+					{
+						c++;
+						if (code[c] == '[')
+							loop++;
+						else if (code[c] == ']')
+							loop--;
+					}
 				}
 			}
 		}
