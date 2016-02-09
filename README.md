@@ -1,3 +1,5 @@
-# brainfuck
+# brainf**k
 
-Yaaa
+Trololo <3
+
+https://www.youtube.com/watch?v=oavMtUWDBTM
